@@ -1,0 +1,11 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/public/index.html" },
+    { "source": "/about", "destination": "/public/about.html" },
+    { "source": "/shop", "destination": "/public/shop.html" },
+    { "source": "/contact", "destination": "/public/contact.html" },
+    { "source": "/images/:path*", "destination": "/public/images/:path*" }
+  ]
+}

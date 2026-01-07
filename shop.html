@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashoka Pharmacy - Shop Online</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary-gold: #FFC107; --primary-gold-hover: #e0a800; --bg-dark: #121212; --bg-card: #1e1e1e; --bg-darker: #000000; --text-light: #f5f5f5; --text-muted: #b0b0b0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Roboto Slab', serif; color: var(--primary-gold); margin-bottom: 15px; }
+        p { color: var(--text-muted); margin-bottom: 15px; font-size: 1rem; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        .btn { display: inline-block; padding: 12px 25px; background-color: var(--primary-gold); color: #000; font-weight: 700; border-radius: 5px; text-transform: uppercase; font-size: 0.9rem; cursor: pointer; border: none; text-align: center; }
+        .btn:hover { background-color: var(--primary-gold-hover); transform: translateY(-2px); }
+
+        nav { background-color: var(--bg-darker); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; position: sticky; top: 0; z-index: 1000; height: 80px; }
+        .logo { height: 100%; display: flex; align-items: center; }
+        .logo img { height: 50px; width: auto; }
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { font-size: 0.95rem; font-weight: 500; color: #fff; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-gold); }
+        .hamburger { display: none; font-size: 1.8rem; color: var(--primary-gold); cursor: pointer; }
+
+        .hero-small { position: relative; min-height: 40vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; padding: 40px 20px; }
+        .hero-content { max-width: 800px; width: 100%; }
+        .hero-small h1 { font-size: clamp(2rem, 4vw, 3rem); color: #fff; }
+        .breadcrumb { color: var(--text-muted); font-size: 0.9rem; margin-top: 10px; }
+        .breadcrumb span { color: var(--primary-gold); }
+
+        section { padding: 60px 5%; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: clamp(2rem, 4vw, 2.5rem); position: relative; display: inline-block; padding-bottom: 15px; }
+        .section-header h2::after { content: ''; display: block; width: 60px; height: 3px; background: var(--primary-gold); margin: 15px auto 0; }
+        
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        
+        .category-card { position: relative; height: 300px; border-radius: 10px; overflow: hidden; border: 1px solid #333; }
+        .category-bg { width: 100%; height: 100%; background-size: cover; background-position: center; transition: 0.5s; }
+        .category-card:hover .category-bg { transform: scale(1.1); }
+        .category-overlay { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.95)); padding: 20px; color: #fff; }
+        .category-overlay h3 { margin-bottom: 5px; font-size: 1.3rem; }
+        .category-overlay span { font-size: 0.9rem; color: var(--text-muted); display: block; margin-bottom: 10px; }
+
+        footer { background-color: #000; padding: 60px 5% 30px; border-top: 1px solid #333; font-size: 0.9rem; color: #888; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons a { width: 40px; height: 40px; background: #222; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-gold); font-size: 1.2rem; transition: 0.3s; }
+        .social-icons a:hover { background: var(--primary-gold); color: #000; }
+
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .nav-links { display: none; position: absolute; top: 80px; left: 0; width: 100%; background-color: var(--bg-darker); flex-direction: column; padding: 20px; border-bottom: 1px solid var(--primary-gold); }
+            .nav-links.active { display: flex; }
+            .nav-links li { text-align: center; }
+            .nav-links li a { display: block; padding: 10px; font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><img src="images/ashoka-pharmacy-logo.png" alt="Ashoka Pharmacy Logo"></div>
+        <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="shop.html" class="active">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero-small">
+        <div class="hero-content">
+            <h1>Shop Essentials</h1>
+            <p class="breadcrumb">Home / <span>Shop Online</span></p>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-header"><h2>Browse Categories</h2><p>Order online via WhatsApp for fast delivery.</p></div>
+        <div class="grid-container">
+            <!-- Prescription -->
+            <div class="category-card">
+                <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="category-overlay"><h3>Prescription Medicines</h3><span>Login Required</span><a href="https://wa.me/917027405130" class="btn" style="padding:5px 15px; font-size:0.8rem;">Order Now</a></div>
+            </div>
+            <!-- OTC -->
+            <div class="category-card">
+                <div class="category-bg" style="background-image: url('https://cdn.pixabay.com/photo/2015/10/25/17/15/flu-1006045_1280.jpg?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="category-overlay"><h3>Over-the-Counter</h3><span>Pain relief, Cough, Allergy</span><a href="https://wa.me/917027405130" class="btn" style="padding:5px 15px; font-size:0.8rem;">Order Now</a></div>
+            </div>
+            <!-- Vitamins -->
+            <div class="category-card">
+                <div class="category-bg" style="background-image: url('https://cdn.pixabay.com/photo/2015/08/02/14/27/vitamin-b-871135_1280.jpg?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="category-overlay"><h3>Vitamins & Supplements</h3><span>Natural immunity boosters</span><a href="https://wa.me/917027405130" class="btn" style="padding:5px 15px; font-size:0.8rem;">Order Now</a></div>
+            </div>
+            <!-- Baby -->
+            <div class="category-card">
+                <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="category-overlay"><h3>Mother & Baby Care</h3><span>Diapers, Formula, Skincare</span><a href="https://wa.me/917027405130" class="btn" style="padding:5px 15px; font-size:0.8rem;">Order Now</a></div>
+            </div>
+            <!-- Personal Care -->
+            <div class="category-card">
+                <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="category-overlay"><h3>Personal Care</h3><span>Hygiene, Skincare, Oral</span><a href="https://wa.me/917027405130" class="btn" style="padding:5px 15px; font-size:0.8rem;">Order Now</a></div>
+            </div>
+            <!-- Medical Devices -->
+            <div class="category-card">
+                <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="category-overlay"><h3>Medical Devices</h3><span>BP monitors, Glucometers</span><a href="https://wa.me/917027405130" class="btn" style="padding:5px 15px; font-size:0.8rem;">Order Now</a></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Ashoka Pharmacy</h4>
+                <p>Near Swaraj Tractor Agency, Uttam Nagar,<br>Loharu Road, Bhiwani 127021 (Haryana)</p>
+                <p style="color:var(--primary-gold); margin-top:10px;">+91 70274 05130</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul><li><a href="index.html">Home</a></li><li><a href="shop.html">Shop Online</a></li><li><a href="contact.html">Contact Us</a></li></ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/ashokapharmacybhiwani/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@ashokapharmacybhiwani" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://share.google/BGK85Pp5zkBUdni9R" target="_blank"><i class="fab fa-google"></i></a>
+                </div>
+            </div>
+        </div>
+        <p style="border-top: 1px solid #333; padding-top: 20px; text-align: center; font-size: 0.8rem;">© 2026 Ashoka Pharmacy. All Rights Reserved.</p>
+    </footer>
+    <script>function toggleMenu(){document.getElementById("navLinks").classList.toggle("active");}</script>
+</body>
+</html>

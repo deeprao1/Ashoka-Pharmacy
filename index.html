@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashoka Pharmacy - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary-gold: #FFC107; --primary-gold-hover: #e0a800; --bg-dark: #121212; --bg-card: #1e1e1e; --bg-darker: #000000; --text-light: #f5f5f5; --text-muted: #b0b0b0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Roboto Slab', serif; color: var(--primary-gold); margin-bottom: 15px; }
+        p { color: var(--text-muted); margin-bottom: 15px; font-size: 1rem; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+        
+        .btn { display: inline-block; padding: 12px 25px; background-color: var(--primary-gold); color: #000; font-weight: 700; border-radius: 5px; text-transform: uppercase; font-size: 0.9rem; cursor: pointer; border: none; text-align: center; }
+        .btn:hover { background-color: var(--primary-gold-hover); transform: translateY(-2px); }
+        .btn-outline { background-color: transparent; border: 2px solid var(--primary-gold); color: var(--primary-gold); padding: 10px 25px; border-radius: 5px; font-weight: 700; display: inline-block; text-align: center; }
+        .btn-outline:hover { background-color: var(--primary-gold); color: #000; }
+        
+        nav { background-color: var(--bg-darker); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; position: sticky; top: 0; z-index: 1000; height: 80px; }
+        .logo { height: 100%; display: flex; align-items: center; }
+        .logo img { height: 50px; width: auto; }
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { font-size: 0.95rem; font-weight: 500; color: #fff; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-gold); }
+        .hamburger { display: none; font-size: 1.8rem; color: var(--primary-gold); cursor: pointer; }
+
+        /* Hero Section */
+        .hero { position: relative; min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1631549916768-4119b2e5f926?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; padding: 40px 20px; }
+        .hero-content { max-width: 800px; width: 100%; }
+        .hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); color: #fff; margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.7); }
+        .hero h2 { font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 300; margin-bottom: 25px; color: var(--primary-gold); }
+        .hero p { font-size: 1.1rem; color: #ddd; margin-bottom: 30px; line-height: 1.8; }
+        .hero-btns { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+
+        section { padding: 60px 5%; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-size: clamp(2rem, 4vw, 2.5rem); position: relative; display: inline-block; padding-bottom: 15px; }
+        .section-header h2::after { content: ''; display: block; width: 60px; height: 3px; background: var(--primary-gold); margin: 15px auto 0; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+        /* About Section */
+        .about-text p { font-size: 1.05rem; margin-bottom: 20px; }
+        .mission-vision { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+        .mv-box { background: #222; padding: 20px; border-left: 3px solid var(--primary-gold); flex: 1; min-width: 250px; }
+
+        /* Services Cards */
+        .service-card { background: var(--bg-card); padding: 35px 25px; border-radius: 8px; border: 1px solid #333; text-align: center; transition: 0.3s; }
+        .service-card:hover { transform: translateY(-5px); border-color: var(--primary-gold); }
+        .service-card i { font-size: 2.5rem; color: var(--primary-gold); margin-bottom: 20px; }
+        .service-card h3 { color: #fff; margin-bottom: 15px; }
+
+        /* Shop Categories */
+        .category-card { position: relative; height: 280px; border-radius: 10px; overflow: hidden; border: 1px solid #333; cursor: pointer; }
+        .category-bg { width: 100%; height: 100%; background-size: cover; background-position: center; transition: 0.5s; }
+        .category-card:hover .category-bg { transform: scale(1.1); }
+        .category-overlay { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.95)); padding: 20px; color: #fff; }
+        .category-overlay h3 { margin-bottom: 5px; font-size: 1.3rem; }
+        .category-overlay span { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* Why Choose Us */
+        .feature-box { text-align: center; padding: 20px; }
+        .feature-box .num { font-size: 4rem; font-weight: 900; color: rgba(255,193,7,0.1); line-height: 1; margin-bottom: -25px; position: relative; z-index: 0; }
+        .feature-box h3 { position: relative; z-index: 1; margin-bottom: 15px; font-size: 1.5rem; }
+
+        /* How It Works */
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; position: relative; }
+        .step-card { background: #1a1a1a; padding: 30px; border-radius: 10px; border-top: 3px solid var(--primary-gold); }
+        .step-icon { width: 60px; height: 60px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: var(--primary-gold); font-size: 1.5rem; }
+
+        /* Footer */
+        footer { background-color: #000; padding: 60px 5% 30px; border-top: 1px solid #333; font-size: 0.9rem; color: #888; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons a { width: 40px; height: 40px; background: #222; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-gold); font-size: 1.2rem; transition: 0.3s; }
+        .social-icons a:hover { background: var(--primary-gold); color: #000; }
+
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .nav-links { display: none; position: absolute; top: 80px; left: 0; width: 100%; background-color: var(--bg-darker); flex-direction: column; padding: 20px; border-bottom: 1px solid var(--primary-gold); }
+            .nav-links.active { display: flex; }
+            .nav-links li { text-align: center; }
+            .nav-links li a { display: block; padding: 10px; font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><img src="images/ashoka-pharmacy-logo.png" alt="Ashoka Pharmacy Logo"></div>
+        <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Where Science Meets Compassion.</h1>
+            <h2>Your trusted partner in health, dedicated to safe, effective, and affordable care for the whole community.</h2>
+            <p>"Pharmacy is the science and practice of discovering, producing, preparing, dispensing, reviewing and monitoring medications, aiming to ensure the safe, effective, and affordable use of medicines. It is a miscellaneous science as it links health sciences with pharmaceutical sciences and natural sciences."</p>
+            <div class="hero-btns">
+                <a href="#shop" class="btn">Shop Now</a>
+                <a href="https://wa.me/917027405130" target="_blank" class="btn-outline"><i class="fab fa-whatsapp"></i> Upload Prescription</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. About Ashoka Pharmacy -->
+    <section id="about">
+        <div class="section-header">
+            <h2>More Than Just a Drugstore</h2>
+        </div>
+        <div class="grid-container" style="align-items: center;">
+            <div class="about-text">
+                <p>At Ashoka Pharmacy, we believe that true healthcare goes beyond simply handing over a bottle of pills. We are the bridge between your doctor’s diagnosis and your recovery. Rooted in the ancient values of care and modern scientific precision, Ashoka Pharmacy is dedicated to the "miscellaneous science" of holistic well-being.</p>
+                <p>Whether you are managing a chronic condition, looking for preventative care, or seeking advice on natural sciences and supplements, our team of licensed pharmacists is here to review and monitor your journey toward better health.</p>
+                
+                <div class="mission-vision">
+                    <div class="mv-box">
+                        <h4>Our Mission</h4>
+                        <p style="margin-bottom: 0;">To provide accessible, affordable, and high-quality pharmaceutical care.</p>
+                    </div>
+                    <div class="mv-box">
+                        <h4>Our Vision</h4>
+                        <p style="margin-bottom: 0;">To be the most trusted community health hub where every patient is treated like family.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Optional: Image placeholder or empty div to balance grid -->
+            <div style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80'); height: 350px; background-size: cover; background-position: center; border-radius: 10px; border: 2px solid var(--primary-gold);"></div>
+        </div>
+    </section>
+
+    <!-- 3. Our Core Services -->
+    <section id="services" style="background-color: #151515;">
+        <div class="section-header">
+            <h2>Comprehensive Pharmaceutical Care</h2>
+            <p>Expert services tailored to your health needs.</p>
+        </div>
+        <div class="grid-container">
+            <!-- 1 -->
+            <div class="service-card">
+                <i class="fas fa-prescription-bottle-alt"></i>
+                <h3>Prescription Dispensing</h3>
+                <p>Fast, accurate filling. We review your history to prevent drug interactions and ensure the dosage is right for you.</p>
+            </div>
+            <!-- 2 -->
+            <div class="service-card">
+                <i class="fas fa-user-md"></i>
+                <h3>Medication Therapy (MTM)</h3>
+                <p>Confused by multiple prescriptions? We review your entire medication list for safety and effectiveness.</p>
+            </div>
+            <!-- 3 -->
+            <div class="service-card">
+                <i class="fas fa-flask"></i>
+                <h3>Custom Compounding</h3>
+                <p>We prepare specific liquid dosages or dye-free formulations in our lab not available commercially.</p>
+            </div>
+            <!-- 4 -->
+            <div class="service-card">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Health Screenings</h3>
+                <p>Visit us for walk-in blood pressure monitoring, blood sugar testing, and cholesterol checks.</p>
+            </div>
+            <!-- 5 -->
+            <div class="service-card">
+                <i class="fas fa-syringe"></i>
+                <h3>Immunizations</h3>
+                <p>Flu shots, shingles vaccines, and travel immunizations administered by certified professionals.</p>
+            </div>
+            <!-- 6 -->
+            <div class="service-card">
+                <i class="fas fa-truck"></i>
+                <h3>Free Home Delivery</h3>
+                <p>Can’t make it to the store? We bring the pharmacy to your doorstep. Safe, contactless delivery.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Shop by Category -->
+    <section id="shop">
+        <div class="section-header">
+            <h2>All Your Health Needs in One Place</h2>
+            <p>Browse our wide range of products</p>
+        </div>
+        <div class="grid-container">
+            <!-- Prescription -->
+            <div class="category-card">
+                <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="category-overlay"><h3>Prescription Medicines</h3><span>Login Required</span></div>
+            </div>
+            <!-- OTC -->
+            <div class="category-card">
+                <div class="category-bg" style="background-image: url('https://cdn.pixabay.com/photo/2015/10/25/17/15/flu-1006045_1280.jpg?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="category-overlay"><h3>Over-the-Counter</h3><span>Pain relief, Cough, Allergy</span></div>
+            </div>
+            <!-- Vitamins -->
+            <div class="category-card">
+                <div class="category-bg" style="background-image: url('https://cdn.pixabay.com/photo/2015/08/02/14/27/vitamin-b-871135_1280.jpg?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="category-overlay"><h3>Vitamins & Supplements</h3><span>Immunity boosters</span></div>
+            </div>
+            <!-- Baby -->
+            <div class="category-card">
+                <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="category-overlay"><h3>Mother & Baby Care</h3><span>Diapers, Formula, Skincare</span></div>
+            </div>
+            <!-- Personal Care -->
+            <div class="category-card">
+                <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="category-overlay"><h3>Personal Care</h3><span>Hygiene, Skincare, Oral</span></div>
+            </div>
+            <!-- Medical Devices -->
+            <div class="category-card">
+                <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="category-overlay"><h3>Medical Devices</h3><span>BP monitors, Glucometers</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. How It Works -->
+    <section style="background-color: #1a1a1a;">
+        <div class="section-header">
+            <h2>Easy Prescription Refills in 3 Steps</h2>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-icon"><i class="fas fa-camera"></i></div>
+                <h3>1. Upload or Scan</h3>
+                <p>Take a photo of your prescription and upload it via our app or website.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon"><i class="fas fa-clipboard-check"></i></div>
+                <h3>2. Verification</h3>
+                <p>Our pharmacists review the order and confirm with your doctor if necessary.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon"><i class="fas fa-shipping-fast"></i></div>
+                <h3>3. Pickup or Delivery</h3>
+                <p>Choose to pick it up in-store or have it delivered to your home.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Why Choose Ashoka Pharmacy? -->
+    <section id="why-us">
+        <div class="section-header">
+            <h2>The Ashoka Difference</h2>
+        </div>
+        <div class="grid-container">
+            <div class="feature-box">
+                <div class="num">01</div>
+                <h3>Safety First</h3>
+                <p>We utilize advanced verification systems to ensure every medication dispensed is 100% genuine and safe.</p>
+            </div>
+            <div class="feature-box">
+                <div class="num">02</div>
+                <h3>Affordability</h3>
+                <p>Health is a right, not a luxury. We offer competitive pricing, generic alternatives, and work with insurance to lower costs.</p>
+            </div>
+            <div class="feature-box">
+                <div class="num">03</div>
+                <h3>Expert Guidance</h3>
+                <p>Our pharmacists are not just vendors; they are clinical experts ready to answer your questions about side effects and wellness.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Ashoka Pharmacy</h4>
+                <p>Near Swaraj Tractor Agency, Uttam Nagar,<br>Loharu Road, Bhiwani 127021 (Haryana)</p>
+                <p style="color:var(--primary-gold); margin-top:10px;">+91 70274 05130</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul><li><a href="index.html">Home</a></li><li><a href="shop.html">Shop Online</a></li><li><a href="contact.html">Contact Us</a></li></ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/ashokapharmacybhiwani/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@ashokapharmacybhiwani" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://share.google/BGK85Pp5zkBUdni9R" target="_blank"><i class="fab fa-google"></i></a>
+                </div>
+            </div>
+        </div>
+        <p style="border-top: 1px solid #333; padding-top: 20px; text-align: center; font-size: 0.8rem;">© 2026 Ashoka Pharmacy. All Rights Reserved.</p>
+    </footer>
+    <script>function toggleMenu(){document.getElementById("navLinks").classList.toggle("active");}</script>
+</body>
+</html>
