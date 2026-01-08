@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Favicon Code -->
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3063/3063176.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,66 +10,169 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --primary-gold: #FFC107; --primary-gold-hover: #e0a800; --bg-dark: #121212; --bg-card: #1e1e1e; --bg-darker: #000000; --text-light: #f5f5f5; --text-muted: #b0b0b0; }
+        /* --- THEME VARIABLES: Medical & Soft (Consistent with Home Page) --- */
+        :root {
+            --primary-color: #0ea5e9; /* Sky Blue */
+            --primary-dark: #0284c7;  /* Darker Blue */
+            --accent-green: #10b981;  /* Emerald */
+            --bg-body: #f8fafc;       /* Very light grey-blue */
+            --bg-white: #ffffff;      /* Pure White */
+            --bg-soft: #e0f2fe;       /* Soft Blue Highlight */
+            --text-main: #334155;     /* Slate 700 */
+            --text-dark: #0f172a;     /* Slate 900 */
+            --text-muted: #64748b;    /* Slate 500 */
+            --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Roboto', sans-serif; background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: 'Roboto Slab', serif; color: var(--primary-gold); margin-bottom: 15px; }
+        
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background-color: var(--bg-body); 
+            color: var(--text-main); 
+            line-height: 1.6; 
+            overflow-x: hidden; 
+        }
+
+        h1, h2, h3, h4 { 
+            font-family: 'Roboto Slab', serif; 
+            color: var(--text-dark); 
+            margin-bottom: 15px; 
+        }
+
         p { color: var(--text-muted); margin-bottom: 15px; font-size: 1rem; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
         img { max-width: 100%; display: block; }
 
-        .btn { display: inline-block; padding: 12px 25px; background-color: var(--primary-gold); color: #000; font-weight: 700; border-radius: 5px; text-transform: uppercase; font-size: 0.9rem; cursor: pointer; border: none; text-align: center; }
-        .btn:hover { background-color: var(--primary-gold-hover); transform: translateY(-2px); }
+        /* Navigation */
+        nav { 
+            background-color: var(--bg-white); 
+            padding: 15px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: var(--shadow-soft);
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            height: 80px; 
+        }
+        .logo h2 { margin: 0; color: var(--primary-dark); font-weight: 700; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 1rem; font-weight: 500; color: var(--text-main); position: relative; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
+        .nav-links a.active::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--primary-color);
+        }
+        .hamburger { display: none; font-size: 1.8rem; color: var(--text-dark); cursor: pointer; }
 
-        nav { background-color: var(--bg-darker); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; position: sticky; top: 0; z-index: 1000; height: 80px; }
-        .logo { height: 100%; display: flex; align-items: center; }
-        .logo img { height: 50px; width: auto; }
-        .nav-links { display: flex; gap: 25px; }
-        .nav-links a { font-size: 0.95rem; font-weight: 500; color: #fff; }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary-gold); }
-        .hamburger { display: none; font-size: 1.8rem; color: var(--primary-gold); cursor: pointer; }
-
-        .hero-small { position: relative; min-height: 40vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; padding: 40px 20px; }
+        /* Hero Small */
+        .hero-small { 
+            position: relative; 
+            min-height: 45vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            /* Medical Blue Gradient Overlay */
+            background: linear-gradient(rgba(14, 165, 233, 0.9), rgba(16, 185, 129, 0.8)), url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); 
+            background-size: cover; 
+            background-position: center; 
+            padding: 40px 20px; 
+        }
         .hero-content { max-width: 800px; width: 100%; }
-        .hero-small h1 { font-size: clamp(2rem, 4vw, 3rem); color: #fff; }
-        .breadcrumb { color: var(--text-muted); font-size: 0.9rem; margin-top: 10px; }
-        .breadcrumb span { color: var(--primary-gold); }
+        .hero-small h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); color: #fff; margin-bottom: 10px; }
+        .breadcrumb { color: #e0f2fe; font-size: 1rem; margin-top: 10px; font-weight: 500; }
+        .breadcrumb span { color: #fff; border-bottom: 2px solid #fff; }
 
-        section { padding: 60px 5%; }
+        section { padding: 80px 5%; }
+        
         .section-header { text-align: center; margin-bottom: 50px; }
         .section-header h2 { font-size: clamp(2rem, 4vw, 2.5rem); position: relative; display: inline-block; padding-bottom: 15px; }
-        .section-header h2::after { content: ''; display: block; width: 60px; height: 3px; background: var(--primary-gold); margin: 15px auto 0; }
+        .section-header h2::after { content: ''; display: block; width: 80px; height: 4px; background: var(--primary-color); margin: 15px auto 0; border-radius: 2px; }
         
-        .split-layout { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
+        /* Split Layout */
+        .split-layout { display: flex; flex-wrap: wrap; gap: 60px; align-items: center; }
         .split-text { flex: 1; min-width: 300px; }
         .split-image { flex: 1; min-width: 300px; }
-        .split-image img { border-radius: 10px; border: 2px solid var(--primary-gold); width: 100%; }
+        .split-image img { 
+            border-radius: 16px; 
+            box-shadow: var(--shadow-hover); 
+            width: 100%; 
+            transition: transform 0.3s;
+        }
+        .split-image img:hover { transform: scale(1.02); }
+
+        /* Mission Vision Boxes */
+        .mv-container { margin-top: 30px; display: flex; gap: 20px; flex-wrap: wrap; }
+        .mv-box { 
+            background: var(--bg-soft); 
+            padding: 25px; 
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color); 
+            flex: 1; 
+            min-width: 200px; 
+            box-shadow: var(--shadow-soft);
+        }
+        .mv-box h4 { margin-bottom: 8px; color: var(--primary-dark); }
+        .mv-box p { margin: 0; font-size: 0.95rem; color: var(--text-main); }
 
         /* Why Choose Us Grid */
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .feature-box { text-align: center; padding: 20px; background: var(--bg-card); border-radius: 8px; border: 1px solid #333; }
-        .feature-box .num { font-size: 3rem; font-weight: 900; color: rgba(255,193,7,0.1); line-height: 1; margin-bottom: -15px; position: relative; z-index: 0; }
-        .feature-box h3 { position: relative; z-index: 1; margin-bottom: 15px; font-size: 1.3rem; color: #fff; }
+        .feature-box { 
+            text-align: center; 
+            padding: 35px 25px; 
+            background: var(--bg-white); 
+            border-radius: 16px; 
+            box-shadow: var(--shadow-soft);
+            transition: 0.3s;
+            border: 1px solid #f1f5f9;
+        }
+        .feature-box:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--primary-color); }
+        
+        .feature-box .num { 
+            font-size: 4rem; 
+            font-weight: 900; 
+            color: #f1f5f9; /* Subtle background number */
+            line-height: 1; 
+            margin-bottom: -25px; 
+            position: relative; 
+            z-index: 0; 
+        }
+        .feature-box h3 { position: relative; z-index: 1; margin-bottom: 15px; font-size: 1.4rem; color: var(--text-dark); }
+        .feature-box p { position: relative; z-index: 1; }
 
-        footer { background-color: #000; padding: 60px 5% 30px; border-top: 1px solid #333; font-size: 0.9rem; color: #888; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        /* Footer */
+        footer { background-color: #0f172a; padding: 70px 5% 30px; color: #94a3b8; font-size: 0.95rem; }
+        footer h4 { color: #fff; margin-bottom: 25px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 50px; }
+        .footer-col p { color: #94a3b8; }
         .social-icons { display: flex; gap: 15px; margin-top: 20px; }
-        .social-icons a { width: 40px; height: 40px; background: #222; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-gold); font-size: 1.2rem; transition: 0.3s; }
-        .social-icons a:hover { background: var(--primary-gold); color: #000; }
+        .social-icons a { 
+            width: 40px; height: 40px; background: rgba(255,255,255,0.1); 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            color: #fff; font-size: 1.2rem; transition: 0.3s; 
+        }
+        .social-icons a:hover { background: var(--primary-color); transform: translateY(-3px); }
 
         @media (max-width: 768px) {
             .hamburger { display: block; }
-            .nav-links { display: none; position: absolute; top: 80px; left: 0; width: 100%; background-color: var(--bg-darker); flex-direction: column; padding: 20px; border-bottom: 1px solid var(--primary-gold); }
+            .nav-links { display: none; position: absolute; top: 80px; left: 0; width: 100%; background-color: var(--bg-white); flex-direction: column; padding: 20px; border-bottom: 1px solid #f1f5f9; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
             .nav-links.active { display: flex; }
             .nav-links li { text-align: center; }
             .nav-links li a { display: block; padding: 10px; font-size: 1.1rem; }
+            .nav-links a.active::after { display: none; }
+            .nav-links a.active { color: var(--primary-color); font-weight: bold; }
         }
     </style>
 </head>
 <body>
     <nav>
-        <div class="logo"><img src="/ashoka-pharmacy-logo.png" alt="Ashoka Pharmacy Logo"></div>
+        <div class="logo">
+             <h2 style="margin:0; color:var(--primary-dark); font-weight:700;"><i class="fas fa-plus-square" style="color:var(--accent-green);"></i> Ashoka</h2>
+        </div>
         <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
@@ -87,32 +189,35 @@
         </div>
     </section>
 
-    <section>
+    <section style="background-color: var(--bg-white);">
         <div class="split-layout">
             <div class="split-image">
-                <img src="hittu-sharma-pharmacist.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pharmacy Interior">
+                <img src="hittu-sharma-pharmacist.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pharmacy Interior and Pharmacist Hittu Sharma">
             </div>
             <div class="split-text">
                 <h2>More Than Just a Drugstore</h2>
                 <p>At <strong>Ashoka Pharmacy</strong>, we believe that true healthcare goes beyond simply handing over a bottle of pills. We are the bridge between your doctor’s diagnosis and your recovery.</p>
                 <p>Rooted in the ancient values of care and modern scientific precision, Ashoka Pharmacy is dedicated to the "miscellaneous science" of holistic well-being. Whether you are managing a chronic condition, looking for preventative care, or seeking advice on natural sciences and supplements, our team of licensed pharmacists is here to review and monitor your journey toward better health.</p>
                 
-                <div style="margin-top: 30px; display: flex; gap: 20px; flex-wrap: wrap;">
-                    <div style="background: #222; padding: 15px; border-left: 3px solid var(--primary-gold); flex: 1; min-width: 200px;">
-                        <h4 style="margin-bottom:5px; color: #fff;">Our Mission</h4>
-                        <p style="margin:0; font-size: 0.9rem;">To provide accessible, affordable, and high-quality pharmaceutical care.</p>
+                <div class="mv-container">
+                    <div class="mv-box">
+                        <h4>Our Mission</h4>
+                        <p>To provide accessible, affordable, and high-quality pharmaceutical care.</p>
                     </div>
-                    <div style="background: #222; padding: 15px; border-left: 3px solid var(--primary-gold); flex: 1; min-width: 200px;">
-                        <h4 style="margin-bottom:5px; color: #fff;">Our Vision</h4>
-                        <p style="margin:0; font-size: 0.9rem;">To be the most trusted community health hub where every patient is treated like family.</p>
+                    <div class="mv-box">
+                        <h4>Our Vision</h4>
+                        <p>To be the most trusted community health hub where every patient is treated like family.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section style="background-color: #151515;">
-        <div class="section-header"><h2>The Ashoka Difference</h2><p>Why our community trusts us.</p></div>
+    <section style="background-color: var(--bg-body);">
+        <div class="section-header">
+            <h2>The Ashoka Difference</h2>
+            <p>Why our community trusts us.</p>
+        </div>
         <div class="grid-container">
             <div class="feature-box">
                 <div class="num">01</div>
@@ -137,7 +242,7 @@
             <div class="footer-col">
                 <h4>Ashoka Pharmacy</h4>
                 <p>Near Swaraj Tractor Agency, Uttam Nagar,<br>Loharu Road, Bhiwani 127021 (Haryana)</p>
-                <p style="color:var(--primary-gold); margin-top:10px;">+91 70274 05130</p>
+                <p style="color:var(--primary-color); margin-top:10px; font-weight:bold;">+91 70274 05130</p>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
@@ -152,7 +257,7 @@
                 </div>
             </div>
         </div>
-        <p style="border-top: 1px solid #333; padding-top: 20px; text-align: center; font-size: 0.8rem;">© 2026 Ashoka Pharmacy. All Rights Reserved.</p>
+        <p style="border-top: 1px solid #1e293b; padding-top: 20px; text-align: center; font-size: 0.8rem; color: #64748b;">© 2026 Ashoka Pharmacy. All Rights Reserved.</p>
     </footer>
     <script>function toggleMenu(){document.getElementById("navLinks").classList.toggle("active");}</script>
 </body>
