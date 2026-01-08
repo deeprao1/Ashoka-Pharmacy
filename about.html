@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- THEME VARIABLES: Medical & Soft (Consistent with Home Page) --- */
+        /* --- THEME VARIABLES: Medical & Soft --- */
         :root {
             --primary-color: #0ea5e9; /* Sky Blue */
             --primary-dark: #0284c7;  /* Darker Blue */
@@ -59,7 +59,11 @@
             z-index: 1000; 
             height: 80px; 
         }
-        .logo h2 { margin: 0; color: var(--primary-dark); font-weight: 700; }
+        
+        /* Logo Styling */
+        .logo { height: 100%; display: flex; align-items: center; }
+        .logo img { height: 50px; width: auto; object-fit: contain; }
+
         .nav-links { display: flex; gap: 30px; }
         .nav-links a { font-size: 1rem; font-weight: 500; color: var(--text-main); position: relative; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
@@ -170,7 +174,9 @@
 </head>
 <body>
     <nav>
-        <div class="logo"><img src="/ashoka-pharmacy-logo.png" alt="Ashoka Pharmacy Logo"></div>
+        <div class="logo">
+            <img src="/ashoka-pharmacy-logo.png" alt="Ashoka Pharmacy Logo">
+        </div>
         <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
