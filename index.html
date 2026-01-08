@@ -1,100 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Favicon Code -->
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3063/3063176.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashoka Pharmacy - Home</title>
+    <title>Ashoka Pharmacy - Care & Compassion</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --primary-gold: #FFC107; --primary-gold-hover: #e0a800; --bg-dark: #121212; --bg-card: #1e1e1e; --bg-darker: #000000; --text-light: #f5f5f5; --text-muted: #b0b0b0; }
+        /* --- THEME VARIABLES: Medical & Soft --- */
+        :root {
+            /* Primary: Trustworthy Medical Blue */
+            --primary-color: #0ea5e9; /* Sky Blue */
+            --primary-dark: #0284c7;  /* Darker Blue */
+            
+            /* Accent: Healing Green */
+            --accent-green: #10b981;  /* Emerald */
+            --accent-hover: #059669;
+            
+            /* Backgrounds: Clean & Clinical */
+            --bg-body: #f8fafc;       /* Very light grey-blue */
+            --bg-white: #ffffff;      /* Pure White */
+            --bg-soft: #e0f2fe;       /* Soft Blue Highlight */
+            
+            /* Text: High Legibility */
+            --text-main: #334155;     /* Slate 700 - Softer than black */
+            --text-dark: #0f172a;     /* Slate 900 - Headings */
+            --text-muted: #64748b;    /* Slate 500 */
+            
+            --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Roboto', sans-serif; background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: 'Roboto Slab', serif; color: var(--primary-gold); margin-bottom: 15px; }
+        
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background-color: var(--bg-body); 
+            color: var(--text-main); 
+            line-height: 1.6; 
+            overflow-x: hidden; 
+        }
+
+        h1, h2, h3, h4 { 
+            font-family: 'Roboto Slab', serif; 
+            color: var(--text-dark); 
+            margin-bottom: 15px; 
+        }
+
         p { color: var(--text-muted); margin-bottom: 15px; font-size: 1rem; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
         img { max-width: 100%; display: block; }
         
-        .btn { display: inline-block; padding: 12px 25px; background-color: var(--primary-gold); color: #000; font-weight: 700; border-radius: 5px; text-transform: uppercase; font-size: 0.9rem; cursor: pointer; border: none; text-align: center; }
-        .btn:hover { background-color: var(--primary-gold-hover); transform: translateY(-2px); }
-        .btn-outline { background-color: transparent; border: 2px solid var(--primary-gold); color: var(--primary-gold); padding: 10px 25px; border-radius: 5px; font-weight: 700; display: inline-block; text-align: center; }
-        .btn-outline:hover { background-color: var(--primary-gold); color: #000; }
+        /* Buttons - Rounded and Soft */
+        .btn { 
+            display: inline-block; 
+            padding: 12px 30px; 
+            background-color: var(--primary-color); 
+            color: #fff; 
+            font-weight: 500; 
+            border-radius: 50px; /* Pill shape */
+            text-transform: uppercase; 
+            font-size: 0.9rem; 
+            cursor: pointer; 
+            border: none; 
+            text-align: center;
+            box-shadow: 0 4px 14px 0 rgba(14, 165, 233, 0.39);
+        }
+        .btn:hover { 
+            background-color: var(--primary-dark); 
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 20px 0 rgba(14, 165, 233, 0.23);
+        }
         
-        nav { background-color: var(--bg-darker); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; position: sticky; top: 0; z-index: 1000; height: 80px; }
+        .btn-outline { 
+            background-color: transparent; 
+            border: 2px solid #fff; 
+            color: #fff; 
+            padding: 10px 30px; 
+            border-radius: 50px; 
+            font-weight: 500; 
+            display: inline-block; 
+            text-align: center; 
+        }
+        .btn-outline:hover { 
+            background-color: #fff; 
+            color: var(--primary-color); 
+        }
+        
+        /* Navigation - Clean White */
+        nav { 
+            background-color: var(--bg-white); 
+            padding: 15px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: var(--shadow-soft);
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            height: 80px; 
+        }
         .logo { height: 100%; display: flex; align-items: center; }
-        .logo img { height: 50px; width: auto; }
-        .nav-links { display: flex; gap: 25px; }
-        .nav-links a { font-size: 0.95rem; font-weight: 500; color: #fff; }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary-gold); }
-        .hamburger { display: none; font-size: 1.8rem; color: var(--primary-gold); cursor: pointer; }
+        .logo img { height: 50px; width: auto; } /* Assuming you have a logo, otherwise text matches theme */
+        
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { 
+            font-size: 1rem; 
+            font-weight: 500; 
+            color: var(--text-main); 
+            position: relative;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
+        /* Add a small dot under active link */
+        .nav-links a.active::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--primary-color);
+        }
 
-        /* Hero Section */
-        .hero { position: relative; min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1631549916768-4119b2e5f926?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; padding: 40px 20px; }
+        .hamburger { display: none; font-size: 1.8rem; color: var(--primary-color); cursor: pointer; }
+
+        /* Hero Section - Blue Overlay */
+        .hero { 
+            position: relative; 
+            min-height: 80vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            /* Soft Blue Gradient Overlay */
+            background: linear-gradient(rgba(14, 165, 233, 0.85), rgba(16, 185, 129, 0.7)), url('https://images.unsplash.com/photo-1631549916768-4119b2e5f926?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); 
+            background-size: cover; 
+            background-position: center; 
+            padding: 40px 20px; 
+        }
         .hero-content { max-width: 800px; width: 100%; }
-        .hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); color: #fff; margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.7); }
-        .hero h2 { font-size: clamp(1.2rem, 3vw, 1.6rem); font-weight: 300; margin-bottom: 25px; color: var(--primary-gold); }
-        .hero p { font-size: 1.1rem; color: #ddd; margin-bottom: 30px; line-height: 1.8; }
-        .hero-btns { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+        .hero h1 { 
+            font-size: clamp(2.5rem, 5vw, 3.8rem); 
+            color: #fff; 
+            margin-bottom: 20px; 
+            font-weight: 700;
+        }
+        .hero h2 { 
+            font-size: clamp(1.2rem, 3vw, 1.6rem); 
+            font-weight: 300; 
+            margin-bottom: 30px; 
+            color: #f0f9ff; 
+        }
+        .hero p { 
+            font-size: 1.1rem; 
+            color: #e2e8f0; 
+            margin-bottom: 35px; 
+            line-height: 1.8; 
+        }
+        .hero-btns { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+        
+        /* Specific Button for Hero to pop */
+        .hero .btn { background-color: #fff; color: var(--primary-color); }
+        .hero .btn:hover { background-color: #f0f9ff; color: var(--primary-dark); }
 
-        section { padding: 60px 5%; }
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { font-size: clamp(2rem, 4vw, 2.5rem); position: relative; display: inline-block; padding-bottom: 15px; }
-        .section-header h2::after { content: ''; display: block; width: 60px; height: 3px; background: var(--primary-gold); margin: 15px auto 0; }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        section { padding: 80px 5%; }
+        
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { 
+            font-size: clamp(2rem, 4vw, 2.5rem); 
+            position: relative; 
+            display: inline-block; 
+            padding-bottom: 15px;
+            color: var(--text-dark);
+        }
+        .section-header h2::after { 
+            content: ''; 
+            display: block; 
+            width: 80px; 
+            height: 4px; 
+            background: var(--primary-color); 
+            margin: 15px auto 0; 
+            border-radius: 2px;
+        }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
 
         /* About Section */
-        .about-text p { font-size: 1.05rem; margin-bottom: 20px; }
+        #about { background-color: var(--bg-white); }
+        .about-text p { font-size: 1.1rem; margin-bottom: 20px; color: var(--text-main); }
         .mission-vision { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
-        .mv-box { background: #222; padding: 20px; border-left: 3px solid var(--primary-gold); flex: 1; min-width: 250px; }
+        .mv-box { 
+            background: var(--bg-soft); 
+            padding: 25px; 
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color); 
+            flex: 1; 
+            min-width: 250px; 
+        }
+        .mv-box h4 { color: var(--primary-dark); }
+        .mv-box p { color: var(--text-main); font-size: 0.95rem;}
 
-        /* Services Cards */
-        .service-card { background: var(--bg-card); padding: 35px 25px; border-radius: 8px; border: 1px solid #333; text-align: center; transition: 0.3s; }
-        .service-card:hover { transform: translateY(-5px); border-color: var(--primary-gold); }
-        .service-card i { font-size: 2.5rem; color: var(--primary-gold); margin-bottom: 20px; }
-        .service-card h3 { color: #fff; margin-bottom: 15px; }
+        /* Services Cards - Clean White Cards */
+        #services { background-color: var(--bg-body); }
+        .service-card { 
+            background: var(--bg-white); 
+            padding: 40px 30px; 
+            border-radius: 16px; 
+            text-align: center; 
+            transition: 0.3s; 
+            box-shadow: var(--shadow-soft);
+            border: 1px solid #f1f5f9;
+        }
+        .service-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-color);
+        }
+        .service-card i { 
+            font-size: 3rem; 
+            color: var(--primary-color); 
+            margin-bottom: 25px; 
+            background: var(--bg-soft);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+        }
+        .service-card h3 { color: var(--text-dark); margin-bottom: 15px; font-weight: 700; }
 
         /* Shop Categories */
-        .category-card { position: relative; height: 280px; border-radius: 10px; overflow: hidden; border: 1px solid #333; cursor: pointer; }
+        #shop { background-color: var(--bg-white); }
+        .category-card { 
+            position: relative; 
+            height: 300px; 
+            border-radius: 16px; 
+            overflow: hidden; 
+            cursor: pointer; 
+            box-shadow: var(--shadow-soft);
+        }
         .category-bg { width: 100%; height: 100%; background-size: cover; background-position: center; transition: 0.5s; }
         .category-card:hover .category-bg { transform: scale(1.1); }
-        .category-overlay { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,0.95)); padding: 20px; color: #fff; }
-        .category-overlay h3 { margin-bottom: 5px; font-size: 1.3rem; }
-        .category-overlay span { font-size: 0.9rem; color: var(--text-muted); }
+        /* Gradient Overlay instead of black */
+        .category-overlay { 
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            width: 100%; 
+            background: linear-gradient(transparent, rgba(15, 23, 42, 0.9)); 
+            padding: 25px; 
+            color: #fff; 
+        }
+        .category-overlay h3 { margin-bottom: 5px; font-size: 1.4rem; color: #fff; }
+        .category-overlay span { font-size: 0.95rem; color: #cbd5e1; }
+
+        /* How It Works - Blue Theme */
+        .how-it-works-section { background-color: #e0f2fe; }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; }
+        .step-card { 
+            background: var(--bg-white); 
+            padding: 40px 30px; 
+            border-radius: 16px; 
+            box-shadow: var(--shadow-soft);
+        }
+        .step-icon { 
+            width: 70px; 
+            height: 70px; 
+            background: var(--primary-color); 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 0 auto 20px; 
+            color: #fff; 
+            font-size: 1.8rem; 
+        }
 
         /* Why Choose Us */
+        #why-us { background-color: var(--bg-white); }
         .feature-box { text-align: center; padding: 20px; }
-        .feature-box .num { font-size: 4rem; font-weight: 900; color: rgba(255,193,7,0.1); line-height: 1; margin-bottom: -25px; position: relative; z-index: 0; }
-        .feature-box h3 { position: relative; z-index: 1; margin-bottom: 15px; font-size: 1.5rem; }
+        .feature-box .num { 
+            font-size: 5rem; 
+            font-weight: 900; 
+            color: #f1f5f9; /* Subtle number background */
+            line-height: 1; 
+            margin-bottom: -35px; 
+            position: relative; 
+            z-index: 0; 
+        }
+        .feature-box h3 { position: relative; z-index: 1; margin-bottom: 15px; font-size: 1.5rem; color: var(--primary-dark); }
 
-        /* How It Works */
-        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; position: relative; }
-        .step-card { background: #1a1a1a; padding: 30px; border-radius: 10px; border-top: 3px solid var(--primary-gold); }
-        .step-icon { width: 60px; height: 60px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: var(--primary-gold); font-size: 1.5rem; }
-
-        /* Footer */
-        footer { background-color: #000; padding: 60px 5% 30px; border-top: 1px solid #333; font-size: 0.9rem; color: #888; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        /* Footer - Dark Navy for professionalism */
+        footer { 
+            background-color: #0f172a; 
+            padding: 70px 5% 30px; 
+            color: #94a3b8; 
+            font-size: 0.95rem;
+        }
+        footer h4 { color: #fff; margin-bottom: 25px; letter-spacing: 0.5px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 50px; }
+        .footer-col p { color: #94a3b8; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a:hover { color: var(--primary-color); padding-left: 5px; }
+        
         .social-icons { display: flex; gap: 15px; margin-top: 20px; }
-        .social-icons a { width: 40px; height: 40px; background: #222; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-gold); font-size: 1.2rem; transition: 0.3s; }
-        .social-icons a:hover { background: var(--primary-gold); color: #000; }
+        .social-icons a { 
+            width: 40px; 
+            height: 40px; 
+            background: rgba(255,255,255,0.1); 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #fff; 
+            font-size: 1.2rem; 
+            transition: 0.3s; 
+        }
+        .social-icons a:hover { background: var(--primary-color); transform: translateY(-3px); }
 
         @media (max-width: 768px) {
-            .hamburger { display: block; }
-            .nav-links { display: none; position: absolute; top: 80px; left: 0; width: 100%; background-color: var(--bg-darker); flex-direction: column; padding: 20px; border-bottom: 1px solid var(--primary-gold); }
+            .hamburger { display: block; color: var(--text-dark); }
+            .nav-links { 
+                display: none; 
+                position: absolute; 
+                top: 80px; 
+                left: 0; 
+                width: 100%; 
+                background-color: var(--bg-white); 
+                flex-direction: column; 
+                padding: 20px; 
+                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+                gap: 15px;
+            }
             .nav-links.active { display: flex; }
             .nav-links li { text-align: center; }
             .nav-links li a { display: block; padding: 10px; font-size: 1.1rem; }
+            .nav-links a.active::after { display: none; } /* Remove underscore on mobile */
+            .nav-links a.active { color: var(--primary-color); font-weight: bold; }
         }
     </style>
 </head>
 <body>
     <nav>
-        <div class="logo"><img src="/ashoka-pharmacy-logo.png" alt="Ashoka Pharmacy Logo"></div>
+        <div class="logo">
+             <h2 style="margin:0; color:var(--primary-dark); font-weight:700;"><i class="fas fa-plus-square" style="color:var(--accent-green);"></i> Ashoka</h2>
+        </div>
         <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html" class="active">Home</a></li>
@@ -104,12 +350,11 @@
         </ul>
     </nav>
 
-    <!-- 1. Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Where Science Meets Compassion.</h1>
             <h2>Your trusted partner in health, dedicated to safe, effective, and affordable care for the whole community.</h2>
-            <p>"Pharmacy is the science and practice of discovering, producing, preparing, dispensing, reviewing and monitoring medications, aiming to ensure the safe, effective, and affordable use of medicines. It is a miscellaneous science as it links health sciences with pharmaceutical sciences and natural sciences."</p>
+            <p>"Pharmacy is the science and practice of discovering, producing, preparing, dispensing, reviewing and monitoring medications, aiming to ensure the safe, effective, and affordable use of medicines."</p>
             <div class="hero-btns">
                 <a href="#shop" class="btn">Shop Now</a>
                 <a href="https://wa.me/917027405130" target="_blank" class="btn-outline"><i class="fab fa-whatsapp"></i> Upload Prescription</a>
@@ -117,15 +362,15 @@
         </div>
     </section>
 
-    <!-- 2. About Ashoka Pharmacy -->
     <section id="about">
         <div class="section-header">
             <h2>More Than Just a Drugstore</h2>
+            <p>Your Health, Our Priority</p>
         </div>
         <div class="grid-container" style="align-items: center;">
             <div class="about-text">
-                <p>At Ashoka Pharmacy, we believe that true healthcare goes beyond simply handing over a bottle of pills. We are the bridge between your doctor’s diagnosis and your recovery. Rooted in the ancient values of care and modern scientific precision, Ashoka Pharmacy is dedicated to the "miscellaneous science" of holistic well-being.</p>
-                <p>Whether you are managing a chronic condition, looking for preventative care, or seeking advice on natural sciences and supplements, our team of licensed pharmacists is here to review and monitor your journey toward better health.</p>
+                <p>At Ashoka Pharmacy, we believe that true healthcare goes beyond simply handing over a bottle of pills. We are the bridge between your doctor’s diagnosis and your recovery. Rooted in the ancient values of care and modern scientific precision.</p>
+                <p>Whether you are managing a chronic condition, looking for preventative care, or seeking advice on supplements, our team of licensed pharmacists is here to review and monitor your journey toward better health.</p>
                 
                 <div class="mission-vision">
                     <div class="mv-box">
@@ -138,49 +383,41 @@
                     </div>
                 </div>
             </div>
-            <!-- Optional: Image placeholder or empty div to balance grid -->
-            <div style="background-image: url('/hittu-sharma-pharmacist.png?auto=format&fit=crop&w=800&q=80'); height: 350px; background-size: cover; background-position: center; border-radius: 10px; border: 2px solid var(--primary-gold);"></div>
+            <div style="background-image: url('https://images.unsplash.com/photo-1576091160550-2187d80a18f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); height: 350px; background-size: cover; background-position: center; border-radius: 16px; box-shadow: var(--shadow-soft);"></div>
         </div>
     </section>
 
-    <!-- 3. Our Core Services -->
-    <section id="services" style="background-color: #151515;">
+    <section id="services">
         <div class="section-header">
             <h2>Comprehensive Pharmaceutical Care</h2>
             <p>Expert services tailored to your health needs.</p>
         </div>
         <div class="grid-container">
-            <!-- 1 -->
             <div class="service-card">
                 <i class="fas fa-prescription-bottle-alt"></i>
                 <h3>Prescription Dispensing</h3>
                 <p>Fast, accurate filling. We review your history to prevent drug interactions and ensure the dosage is right for you.</p>
             </div>
-            <!-- 2 -->
             <div class="service-card">
                 <i class="fas fa-user-md"></i>
-                <h3>Medication Therapy (MTM)</h3>
+                <h3>Medication Therapy</h3>
                 <p>Confused by multiple prescriptions? We review your entire medication list for safety and effectiveness.</p>
             </div>
-            <!-- 3 -->
             <div class="service-card">
                 <i class="fas fa-flask"></i>
                 <h3>Custom Compounding</h3>
                 <p>We prepare specific liquid dosages or dye-free formulations in our lab not available commercially.</p>
             </div>
-            <!-- 4 -->
             <div class="service-card">
                 <i class="fas fa-heartbeat"></i>
                 <h3>Health Screenings</h3>
                 <p>Visit us for walk-in blood pressure monitoring, blood sugar testing, and cholesterol checks.</p>
             </div>
-            <!-- 5 -->
             <div class="service-card">
                 <i class="fas fa-syringe"></i>
                 <h3>Immunizations</h3>
                 <p>Flu shots, shingles vaccines, and travel immunizations administered by certified professionals.</p>
             </div>
-            <!-- 6 -->
             <div class="service-card">
                 <i class="fas fa-truck"></i>
                 <h3>Free Home Delivery</h3>
@@ -189,39 +426,32 @@
         </div>
     </section>
 
-    <!-- 4. Shop by Category -->
     <section id="shop">
         <div class="section-header">
             <h2>All Your Health Needs in One Place</h2>
             <p>Browse our wide range of products</p>
         </div>
         <div class="grid-container">
-            <!-- Prescription -->
             <div class="category-card">
                 <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="category-overlay"><h3>Prescription Medicines</h3><span>Login Required</span></div>
             </div>
-            <!-- OTC -->
             <div class="category-card">
                 <div class="category-bg" style="background-image: url('https://cdn.pixabay.com/photo/2015/10/25/17/15/flu-1006045_1280.jpg?auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="category-overlay"><h3>Over-the-Counter</h3><span>Pain relief, Cough, Allergy</span></div>
             </div>
-            <!-- Vitamins -->
             <div class="category-card">
                 <div class="category-bg" style="background-image: url('https://cdn.pixabay.com/photo/2015/08/02/14/27/vitamin-b-871135_1280.jpg?auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="category-overlay"><h3>Vitamins & Supplements</h3><span>Immunity boosters</span></div>
             </div>
-            <!-- Baby -->
             <div class="category-card">
                 <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="category-overlay"><h3>Mother & Baby Care</h3><span>Diapers, Formula, Skincare</span></div>
             </div>
-            <!-- Personal Care -->
             <div class="category-card">
                 <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="category-overlay"><h3>Personal Care</h3><span>Hygiene, Skincare, Oral</span></div>
             </div>
-            <!-- Medical Devices -->
             <div class="category-card">
                 <div class="category-bg" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="category-overlay"><h3>Medical Devices</h3><span>BP monitors, Glucometers</span></div>
@@ -229,8 +459,7 @@
         </div>
     </section>
 
-    <!-- 6. How It Works -->
-    <section style="background-color: #1a1a1a;">
+    <section class="how-it-works-section">
         <div class="section-header">
             <h2>Easy Prescription Refills in 3 Steps</h2>
         </div>
@@ -253,7 +482,6 @@
         </div>
     </section>
 
-    <!-- 5. Why Choose Ashoka Pharmacy? -->
     <section id="why-us">
         <div class="section-header">
             <h2>The Ashoka Difference</h2>
@@ -282,7 +510,7 @@
             <div class="footer-col">
                 <h4>Ashoka Pharmacy</h4>
                 <p>Near Swaraj Tractor Agency, Uttam Nagar,<br>Loharu Road, Bhiwani 127021 (Haryana)</p>
-                <p style="color:var(--primary-gold); margin-top:10px;">+91 70274 05130</p>
+                <p style="color:var(--primary-color); margin-top:10px; font-weight:bold;">+91 70274 05130</p>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
@@ -297,7 +525,7 @@
                 </div>
             </div>
         </div>
-        <p style="border-top: 1px solid #333; padding-top: 20px; text-align: center; font-size: 0.8rem;">© 2026 Ashoka Pharmacy. All Rights Reserved.</p>
+        <p style="border-top: 1px solid #1e293b; padding-top: 20px; text-align: center; font-size: 0.8rem; color: #64748b;">© 2026 Ashoka Pharmacy. All Rights Reserved.</p>
     </footer>
     <script>function toggleMenu(){document.getElementById("navLinks").classList.toggle("active");}</script>
 </body>
