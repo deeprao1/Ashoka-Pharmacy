@@ -80,7 +80,11 @@
             z-index: 1000; 
             height: 80px; 
         }
-        .logo h2 { margin: 0; color: var(--primary-dark); font-weight: 700; }
+        
+        /* Logo Styling */
+        .logo { height: 100%; display: flex; align-items: center; }
+        .logo img { height: 50px; width: auto; object-fit: contain; }
+
         .nav-links { display: flex; gap: 30px; }
         .nav-links a { font-size: 1rem; font-weight: 500; color: var(--text-main); position: relative; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
@@ -175,7 +179,7 @@
 <body>
     <nav>
         <div class="logo">
-             <h2 style="margin:0; color:var(--primary-dark); font-weight:700;"><i class="fas fa-plus-square" style="color:var(--accent-green);"></i> Ashoka</h2>
+            <img src="/ashoka-pharmacy-logo.png" alt="Ashoka Pharmacy Logo">
         </div>
         <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
@@ -231,7 +235,7 @@
             </div>
 
             <div class="map-wrapper">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.6826978500223!2d76.13612807495475!3d28.77926867558455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39129577ce565251%3A0xbdc653066601614b!2sBhiwani%2C%20Haryana!5e0!3m2!1sen!2sin!4v1709228547285!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3493.5593856113645!2d76.13626631508823!3d28.784407982358054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3912953255555555%3A0x123456789abcdef!2sBhiwani%2C%20Haryana!5e0!3m2!1sen!2sin!4v1625567890123!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
