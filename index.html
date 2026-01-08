@@ -26,7 +26,7 @@
             --bg-soft: #e0f2fe;       /* Soft Blue Highlight */
             
             /* Text: High Legibility */
-            --text-main: #334155;     /* Slate 700 - Softer than black */
+            --text-main: #334155;     /* Slate 700 */
             --text-dark: #0f172a;     /* Slate 900 - Headings */
             --text-muted: #64748b;    /* Slate 500 */
             
@@ -62,7 +62,7 @@
             background-color: var(--primary-color); 
             color: #fff; 
             font-weight: 500; 
-            border-radius: 50px; /* Pill shape */
+            border-radius: 50px; 
             text-transform: uppercase; 
             font-size: 0.9rem; 
             cursor: pointer; 
@@ -91,7 +91,7 @@
             color: var(--primary-color); 
         }
         
-        /* Navigation - Clean White */
+        /* Navigation */
         nav { 
             background-color: var(--bg-white); 
             padding: 15px 5%; 
@@ -104,8 +104,10 @@
             z-index: 1000; 
             height: 80px; 
         }
+        
+        /* Logo Styling */
         .logo { height: 100%; display: flex; align-items: center; }
-        .logo img { height: 50px; width: auto; } /* Assuming you have a logo, otherwise text matches theme */
+        .logo img { height: 50px; width: auto; object-fit: contain; }
         
         .nav-links { display: flex; gap: 30px; }
         .nav-links a { 
@@ -115,14 +117,13 @@
             position: relative;
         }
         .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
-        /* Add a small dot under active link */
         .nav-links a.active::after {
             content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--primary-color);
         }
 
         .hamburger { display: none; font-size: 1.8rem; color: var(--primary-color); cursor: pointer; }
 
-        /* Hero Section - Blue Overlay */
+        /* Hero Section */
         .hero { 
             position: relative; 
             min-height: 80vh; 
@@ -130,7 +131,6 @@
             align-items: center; 
             justify-content: center; 
             text-align: center; 
-            /* Soft Blue Gradient Overlay */
             background: linear-gradient(rgba(14, 165, 233, 0.85), rgba(16, 185, 129, 0.7)), url('https://images.unsplash.com/photo-1631549916768-4119b2e5f926?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); 
             background-size: cover; 
             background-position: center; 
@@ -157,7 +157,6 @@
         }
         .hero-btns { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
         
-        /* Specific Button for Hero to pop */
         .hero .btn { background-color: #fff; color: var(--primary-color); }
         .hero .btn:hover { background-color: #f0f9ff; color: var(--primary-dark); }
 
@@ -197,7 +196,7 @@
         .mv-box h4 { color: var(--primary-dark); }
         .mv-box p { color: var(--text-main); font-size: 0.95rem;}
 
-        /* Services Cards - Clean White Cards */
+        /* Services Cards */
         #services { background-color: var(--bg-body); }
         .service-card { 
             background: var(--bg-white); 
@@ -237,7 +236,7 @@
         }
         .category-bg { width: 100%; height: 100%; background-size: cover; background-position: center; transition: 0.5s; }
         .category-card:hover .category-bg { transform: scale(1.1); }
-        /* Gradient Overlay instead of black */
+        
         .category-overlay { 
             position: absolute; 
             bottom: 0; 
@@ -250,7 +249,7 @@
         .category-overlay h3 { margin-bottom: 5px; font-size: 1.4rem; color: #fff; }
         .category-overlay span { font-size: 0.95rem; color: #cbd5e1; }
 
-        /* How It Works - Blue Theme */
+        /* How It Works */
         .how-it-works-section { background-color: #e0f2fe; }
         .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; }
         .step-card { 
@@ -278,7 +277,7 @@
         .feature-box .num { 
             font-size: 5rem; 
             font-weight: 900; 
-            color: #f1f5f9; /* Subtle number background */
+            color: #f1f5f9; 
             line-height: 1; 
             margin-bottom: -35px; 
             position: relative; 
@@ -286,7 +285,7 @@
         }
         .feature-box h3 { position: relative; z-index: 1; margin-bottom: 15px; font-size: 1.5rem; color: var(--primary-dark); }
 
-        /* Footer - Dark Navy for professionalism */
+        /* Footer */
         footer { 
             background-color: #0f172a; 
             padding: 70px 5% 30px; 
@@ -331,7 +330,7 @@
             .nav-links.active { display: flex; }
             .nav-links li { text-align: center; }
             .nav-links li a { display: block; padding: 10px; font-size: 1.1rem; }
-            .nav-links a.active::after { display: none; } /* Remove underscore on mobile */
+            .nav-links a.active::after { display: none; }
             .nav-links a.active { color: var(--primary-color); font-weight: bold; }
         }
     </style>
@@ -339,7 +338,7 @@
 <body>
     <nav>
         <div class="logo">
-             <h2 style="margin:0; color:var(--primary-dark); font-weight:700;"><i class="fas fa-plus-square" style="color:var(--accent-green);"></i> Ashoka</h2>
+            <img src="/ashoka-pharmacy-logo.png" alt="Ashoka Pharmacy Logo">
         </div>
         <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
@@ -383,7 +382,7 @@
                     </div>
                 </div>
             </div>
-            <div style="background-image: url('hittu-sharma-pharmacist.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); height: 350px; background-size: cover; background-position: center; border-radius: 16px; box-shadow: var(--shadow-soft);"></div>
+            <div style="background-image: url('https://images.unsplash.com/photo-1576091160550-2187d80a18f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); height: 350px; background-size: cover; background-position: center; border-radius: 16px; box-shadow: var(--shadow-soft);"></div>
         </div>
     </section>
 
