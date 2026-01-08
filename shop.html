@@ -80,7 +80,11 @@
             z-index: 1000; 
             height: 80px; 
         }
-        .logo h2 { margin: 0; color: var(--primary-dark); font-weight: 700; }
+        
+        /* Logo Styling */
+        .logo { height: 100%; display: flex; align-items: center; }
+        .logo img { height: 50px; width: auto; object-fit: contain; }
+
         .nav-links { display: flex; gap: 30px; }
         .nav-links a { font-size: 1rem; font-weight: 500; color: var(--text-main); position: relative; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
@@ -118,7 +122,7 @@
         /* Category Cards */
         .category-card { 
             position: relative; 
-            height: 350px; /* Made slightly taller */
+            height: 350px; 
             border-radius: 16px; 
             overflow: hidden; 
             border: 1px solid #e2e8f0; 
@@ -140,7 +144,6 @@
             bottom: 0; 
             left: 0; 
             width: 100%; 
-            /* Gradient from transparent to dark slate */
             background: linear-gradient(to top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.6), transparent); 
             padding: 25px; 
             color: #fff; 
@@ -180,7 +183,7 @@
 <body>
     <nav>
         <div class="logo">
-             <h2 style="margin:0; color:var(--primary-dark); font-weight:700;"><i class="fas fa-plus-square" style="color:var(--accent-green);"></i> Ashoka</h2>
+            <img src="/ashoka-pharmacy-logo.png" alt="Ashoka Pharmacy Logo">
         </div>
         <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         <ul class="nav-links" id="navLinks">
